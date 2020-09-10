@@ -40,6 +40,7 @@ describe "Owners Controller" do
       @owner = Owner.create(:name => "Carla")
       @pet = Pet.create(:name => "Chewie", :owner_id => @owner.id)
     end
+  end 
 
     it "can visit '/owners/:id/edit' " do 
       get "/owners/#{@owner.id}/edit"
