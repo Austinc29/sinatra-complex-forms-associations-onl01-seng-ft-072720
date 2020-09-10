@@ -36,17 +36,7 @@ describe "Owners Controller" do
     end
 
 
-    it "'/owners/new' redirects to '/owners/:id' after form submissions" do
-      @pet1 = Pet.create(:name => "Bessie") 
-      @pet2 = Pet.create(:name => "Sadie")
-      visit '/owners/new'
-      fill_in "owner[name]", :with => "Sophie"
-      check(@pet1.id)
-      click_button "Create Owner"
-      @owner = Owner.last
-      expect(page.current_path).to eq("/owners/#{@owner.id}")
-    end
-  end
+  
 
   describe "edit action" do 
     before(:each) do
