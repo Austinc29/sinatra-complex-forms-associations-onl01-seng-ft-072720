@@ -21,10 +21,6 @@ describe "Owners Controller" do
       expect(page.has_unchecked_field?(@pet2.id)).to eq(true)
     end
 
-    it "'/owners/new' form has a field for creating a new pet" do
-      visit '/owners/new'
-      expect(page).to have_field('pet[name]')
-    end
 
 
     it "'/owners/new' creates a new owner and associates an existing pet " do
@@ -39,18 +35,6 @@ describe "Owners Controller" do
       expect(@owner.pets.first.name).to eq("Bessie")
     end
 
-      it "'/owners/new' creates a new owner and a new pet" do
-      @pet1 = Pet.create(:name => "Bessie") 
-      @pet2 = Pet.create(:name => "Sadie")
-      visit '/owners/new'
-      fill_in "owner[name]", :with => "Sophie"
-      fill_in "pet[name]", :with => "Caldwell"
-      click_button "Create Owner"
-      @owner = Owner.last
-      @pet = Pet.last
-      expect(@owner.name).to eq("Sophie")
-      expect(@owner.pets.first.name).to eq("Caldwell")
-    end
 
     it "'/owners/new' redirects to '/owners/:id' after form submissions" do
       @pet1 = Pet.create(:name => "Bessie") 
