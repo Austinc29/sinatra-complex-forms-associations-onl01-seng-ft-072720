@@ -35,9 +35,6 @@ describe "Owners Controller" do
       expect(@owner.pets.first.name).to eq("Bessie")
     end
 
-
-  
-
   describe "edit action" do 
     before(:each) do
       @owner = Owner.create(:name => "Carla")
